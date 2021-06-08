@@ -5,8 +5,10 @@
 using namespace std;
 
 int main() {
+    // input a space-delimited file of integers
     string item;
     int data[100], count=0;
+    // count is the measured size of the array
     ifstream inFile("../input.txt", ios::in);
     if (inFile.is_open()) {
         cout << "file open, printing input:" << endl;
@@ -20,23 +22,24 @@ int main() {
     
     ofstream outFile;
     outFile.open("../output.txt");
-    int* output;
+    int *bubbleOutput, *quickOutput, *insertionOutput;
     // Bubble Sort
-    output = bubbleSort(data, count);
+    bubbleOutput = bubbleSort(data, count);
     cout << "Bubble sort output:" << endl;
     outFile << "Bubble Sort:\t";
-    for(int i=0;i<count;i++){
-        outFile << output[i] << ' ';
-        cout << output[i] << "\t";
-    }
-        
-    output = quickSort(data, 0, count-1);
-    cout << endl << "Quick sort output: " << endl;
-    outFile << endl << "Quick Sort:\t";
-    for(int i=0;i<count;i++){
-        outFile << output[i] << ' ';
-        cout << output[i] << "\t";
-    }
+    printArray(bubbleOutput, count, outFile);
+    
+    // Quick sort
+    quickOutput = quickSort(data, 0, count-1);
+    cout << "Quick sort output: " << endl;
+    outFile << "Quick Sort:\t";
+    printArray(quickOutput, count, outFile);
+    
+    // Insertion sort
+    insertionOutput = insertionSort(data, count);
+    cout << "Insertion sort output: " << endl;
+    outFile << "Insertion Sort:\t";
+    printArray(insertionOutput, count, outFile);
     
 
     void close();

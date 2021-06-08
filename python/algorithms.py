@@ -30,3 +30,13 @@ def partition(array, lo, hi):
     array[i], array[hi] = array[hi], array[i]
     return i
 
+def insertionSort(array):
+    length = len(array)
+    for x in range(1,length):
+        key = array[x]
+        j = x-1
+        while(j >= 0 and array[j] > key):
+            array[j+1] = array[j]
+            j+=1
+        array[j+1] = key
+    return array
