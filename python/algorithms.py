@@ -13,11 +13,11 @@ def bubbleSort(i):
                 flag = True
     return i
         
-def quicksort(array, lo, hi):
+def quickSort(array, lo, hi):
     if hi > lo:
         p = partition(array, lo, hi)
-        quicksort(array, lo, p-1)
-        quicksort(array, p+1, hi)
+        quickSort(array, lo, p-1)
+        quickSort(array, p+1, hi)
     return array
 
 def partition(array, lo, hi):

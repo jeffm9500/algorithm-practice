@@ -8,5 +8,5 @@ bubbleOutput = bubbleSort(input)
 print(f'bubble sort output: \t{bubbleOutput}')
 output.write(str(bubbleOutput))
 
-quickOutput = quicksort(input, 0, len(input)-1)
+quickOutput = quickSort(input, 0, len(input)-1)
 print(f'quick sort output: \t{quickOutput}')

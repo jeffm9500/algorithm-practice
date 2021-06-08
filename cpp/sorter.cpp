@@ -21,17 +21,23 @@ int main() {
     ofstream outFile;
     outFile.open("../output.txt");
     int* output;
-    try {
-        output=bubbleSort(data, count);
-        cout << "printing output:" << endl;
-        for(int i=0;i<count;i++){
-            outFile << output[i] << ' ';
-            cout << output[i] << "\t";
-        }
-        
-    } catch (const char* msg) {
-        cerr << msg << endl;
+    // Bubble Sort
+    output = bubbleSort(data, count);
+    cout << "Bubble sort output:" << endl;
+    outFile << "Bubble Sort:\t";
+    for(int i=0;i<count;i++){
+        outFile << output[i] << ' ';
+        cout << output[i] << "\t";
     }
+        
+    output = quickSort(data, 0, count-1);
+    cout << endl << "Quick sort output: " << endl;
+    outFile << endl << "Quick Sort:\t";
+    for(int i=0;i<count;i++){
+        outFile << output[i] << ' ';
+        cout << output[i] << "\t";
+    }
+    
 
     void close();
     return 0;
