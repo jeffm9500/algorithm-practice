@@ -4,24 +4,42 @@
 #include "algorithms.h"
 using namespace std;
 
-int main() {
+int sort(string fileName, string outFileName) {
+    cout << "sorting " << fileName << " into " << outFileName << endl;
     // input a space-delimited file of integers
     string item;
-    int data[100], count=0;
+    ifstream inFile;
+    int data[1000], count=0;
     // count is the measured size of the array
-    ifstream inFile("../input.txt", ios::in);
+    if (fileName.empty()){
+        inFile.open("../input.txt", ios::in);
+    } else{
+        inFile.open(fileName, ios::in);
+    }
+    
     if (inFile.is_open()) {
         cout << "file open, printing input:" << endl;
         while (!inFile.eof()){
-            getline(inFile, item, ' ');
+            getline(inFile, item, ' '); //grab entire line (array)
             cout << item << "\t";
-            data[count++] = stoi(item);
+            try {
+                data[count++] = stoi(item);
+            } catch (invalid_argument &e) {
+                cout << e.what() << endl;
+                cout << "Invalid input array. Array must be space-separated integers" << endl;
+            }
+            
         }
         cout << endl;
     }
     
     ofstream outFile;
-    outFile.open("../output.txt");
+    if (outFileName.empty()){
+        outFile.open("../output.txt");
+    } else {
+        outFile.open(outFileName);
+    }
+    
     int *bubbleOutput, *quickOutput, *insertionOutput;
     // Bubble Sort
     bubbleOutput = bubbleSort(data, count);

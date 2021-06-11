@@ -1,5 +1,8 @@
 # custom files
 output.txt
+output1.txt
+output2.txt
+output3.txt
 .vscode/
 *.exe
 

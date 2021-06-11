@@ -18,6 +18,9 @@ int * quickSort(int *a, int lo, int hi);
 int partition(int *a, int lo, int hi); //helper function for quicksort
 int * insertionSort(int *a, int len);
 
+// sorter main function
+int sort(std::string fileName, std::string outFileName);
+
 
 
 #endif
